@@ -126,7 +126,7 @@ contains
 
     integer :: uaflag = 0
     integer :: precip_dwn = 0         ! Used to turn on/off the downscaling of precipitation  0 = on; 1 = off
-    integer :: other_forcing_dwn = 0  ! Used to turn on/off the downscaling of other forcing  0 = on; 1 = off
+    integer :: other_forcing_dwn = 1  ! Used to turn on/off the downscaling of other forcing  0 = on; 1 = off
 
     character(len=*), parameter :: subname = 'downscale_atm_forcing_to_topounit'
     !----------------------------------------------------------------------------------------
@@ -864,7 +864,7 @@ contains
 
     integer :: uaflag = 0
     integer :: precip_dwn = 0         ! Used to turn on/off the downscaling of precipitation  0 = on; 1 = off
-    integer :: other_forcing_dwn = 0  ! Used to turn on/off the downscaling of other forcing  0 = on; 1 = off
+    integer :: other_forcing_dwn = 1  ! Used to turn on/off the downscaling of other forcing  0 = on; 1 = off
 
     character(len=*), parameter :: subname = 'downscale_atm_forcing_to_topounit'
     !----------------------------------------------------------------------------------------
