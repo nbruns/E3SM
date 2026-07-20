@@ -218,9 +218,7 @@ contains
 
           ! Downscale other fluxes
           if (other_forcing_dwn == 1) then  ! flag to turn on or off downscaling of other forcing
-             top_af%rain(t) = rain_g 
-             top_af%snow(t) = snow_g 
-             top_af%lwrad(t) = x2l(index_x2l_faxa_lwdn,i)       	  
+             top_af%lwrad(t) = x2l(index_x2l_faxa_lwdn,i)
              ! Update top_as
              top_as%tbot(t)    = x2l(index_x2l_Sa_tbot,i)      ! forc_txy  Atm state K
              top_as%thbot(t)   = x2l(index_x2l_Sa_ptem,i)      ! forc_thxy Atm state K
@@ -956,9 +954,7 @@ contains
 
           ! Downscale other fluxes
           if (other_forcing_dwn == 1) then  ! flag to turn on or off downscaling of other forcing
-             top_af%rain(t) = rain_g 
-             top_af%snow(t) = snow_g 
-             top_af%lwrad(t) = atm2lnd_vars%forc_lwrad_not_downscaled_grc(g)       	  
+             top_af%lwrad(t) = atm2lnd_vars%forc_lwrad_not_downscaled_grc(g)
              ! Update top_as
              top_as%tbot(t)    = atm2lnd_vars%forc_t_not_downscaled_grc(g)      ! forc_txy  Atm state K
              top_as%thbot(t)   = atm2lnd_vars%forc_th_not_downscaled_grc(g)      ! forc_thxy Atm state K
