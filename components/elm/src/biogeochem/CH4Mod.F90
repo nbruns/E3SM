@@ -633,6 +633,20 @@ contains
          avgflag='A', long_name='CH4 additional flux due to changing fsat, vegetated landunits only', &
          ptr_col=this%ch4_dfsat_flux_col)
 
+    ! Total surface CH4 flux before it is averaged up to the gridcell. This is
+    ! the quantity c2g() reduces into lnd2atm's FCH4, which is registered with
+    ! ptr_lnd and so can only ever be written as a gridcell value. Registering
+    ! the column-level array here is what makes CH4 flux available at subgrid
+    ! (topounit) resolution under hist_dov2xy = .false.; it is the sum of the
+    ! CH4_SURF_* pathway components already registered above, plus FCH4_DFSAT.
+    ! Read-only addition: the array is computed regardless, and is reset to 0
+    ! over begc:endc each timestep before use, so nothing here changes physics.
+    this%ch4_surf_flux_tot_col(begc:endc) = spval
+    call hist_addfld1d (fname='CH4_SURF_FLUX_TOT', units='kgC/m2/s',  &
+         avgflag='A', long_name='Total surface CH4 flux to atmosphere (+ to atm), before gridcell &
+         &averaging; equals FCH4 when averaged to gridcell', &
+         ptr_col=this%ch4_surf_flux_tot_col)
+
     this%zwt_ch4_unsat_col(begc:endc) = spval
     call hist_addfld1d (fname='ZWT_CH4_UNSAT', units='m',  &
          avgflag='A', long_name='depth of water table for methane production used in non-inundated area', &
